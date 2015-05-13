@@ -15,4 +15,12 @@ describe Ingredient do
     expect(ingredient.save()).to(eq(false))
   end
 
+  describe('#type') do
+    it("will return the ingredient type of an ingredient") do
+      fruit = Type.create(description: "Fruit")
+      ingredient = Ingredient.create(description: "1 banana", type_id: fruit.id)
+      expect(ingredient.type()).to(eq(fruit))
+    end
+  end
+
 end

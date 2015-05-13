@@ -1,0 +1,65 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url("img/cupcakes.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  position: relative;
+  background-size: auto 100%;
+  min-height: 100%
+}
+
+.instructions {
+  height: 500px;
+  vertical-align: middle;
+}
+
+.category-title {
+  color: #8B008B;
+  font-size: 35px;
+}
+
+.main-title {
+  color: #4B0082;
+  font-size: 45px;
+  margin-bottom: 0px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.sub-title {
+  color: #00820a;
+  font-size:30px;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.category-buttons {
+  margin: 10px;
+}
+
+.no-value-alert {
+  margin-bottom: 20px;
+}
+
+.title-input {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.ingredients-button {
+  margin-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

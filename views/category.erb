@@ -1,0 +1,18 @@
+<h1 class="main-title"><%= @category.description() %></h1>
+
+
+<% if @category.recipes == [] %>
+<h3 class="no-value-alert">There are no recipes in this cateogory!</h3>
+
+<% else %>
+
+<h2>Here are all the recipes for this category:</h2>
+  <ul>
+    <% @category.recipes().each do |recipe| %>
+      <li><a href="/recipes/<%= recipe.id() %>"><%= recipe.title()%></a></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+
+  <a href="/recipe/add/category/<%= @category.id %>" role="button" class="btn btn-primary">Add Recipe to <%= @category.description() %></a>

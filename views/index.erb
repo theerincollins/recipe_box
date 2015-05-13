@@ -1,2 +1,13 @@
-<h2>It's a Recipe Box</h2>
-<h3>Cook Things Good</h3>
+<h2 class="main-title">It's a Recipe Box</h2>
+<h3 class="sub-title">Cook Things Good</h3>
+
+<h5>View Existing Recipes by Category</h5>
+
+<% if @categories.any? %>
+  <% @categories.each do |category| %>
+    <a href="/categories/<%= category.id() %>" role="button" class="btn btn-info category-buttons"><%= category.description %></a>
+  <% end %>
+<% end %>
+<div class="ingredients-button">
+  <a href="/add/ingredients" role="button" class="btn btn-success">Add Ingredients to Your Cupboard</a>
+</div>

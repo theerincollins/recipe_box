@@ -1,0 +1,6 @@
+<h1>Available Ingredients by Type<h1>
+<ul>
+<% @types.each() do |type| %>
+  <li><%= type.description %></li>
+<% end %>
+</ul>

@@ -3,4 +3,6 @@ class Ingredient < ActiveRecord::Base
 
   validates(:description, :presence => true)
 
+  belongs_to(:type)
+
 end

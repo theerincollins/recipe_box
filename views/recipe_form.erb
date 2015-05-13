@@ -1,0 +1,19 @@
+<h3>Add a Recipe to <span class="category-title"><%= @category.description() %></span></h3>
+
+<form action="/recipes" method="post" id="recipes">
+  <input type="hidden" value="<%= @category.id %>" name="category_id" id="category_id">
+
+  <div class="form-group">
+    <!-- <label for="title">Title of Recipe</label> -->
+    <input type="text" name="title" id="title" class="form-control title-input"
+    placeholder = "Recipe Title">
+  </div>
+
+  <div class="form-group">
+    <!-- <label for="instructions">Instructions for Recipe</label> -->
+    <textarea placeholder = "Recipe Instructions" name="instructions" id="instructions" form="recipes" class="instructions form-control"></textarea>
+  </div>
+  <a href="/categories/<%= @category.id %>" role="button" class="btn btn-info">Bact to <%= @category.description() %></a>
+<button type="submit" class="btn btn-success">Submit Recipe</button>
+
+</form>

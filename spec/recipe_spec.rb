@@ -20,8 +20,6 @@ describe Recipe do
     it("returns the category of a recipe") do
       category = Category.create(description: "Breakfast in Bed")
       recipe = Recipe.new({:category_ids => [category.id()]})
-      # new_recipe = Recipe.create(title: "Banana Pancakes", instructions: "1. Mash Bananas 2.Make Pancakes")
-      # category.recipes.push(new_recipe)
       expect(recipe.categories).to(eq([category]))
     end
   end
