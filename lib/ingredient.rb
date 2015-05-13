@@ -1,9 +1,6 @@
-source("https://rubygems.org")
+class Ingredient < ActiveRecord::Base
+  belongs_to(:recipe)
 
-gem("sinatra")
-gem("sinatra-contrib", :require => "sinatra/reloader")
-gem("sinatra-activerecord")
-gem("rake")
-gem("pg")
-gem("rspec")
-gem("pry")
+  validates(:description, :presence => true)
+
+end
