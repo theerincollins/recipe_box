@@ -14,6 +14,28 @@
     <textarea placeholder = "Recipe Instructions" name="instructions" id="instructions" form="recipes" class="instructions form-control"></textarea>
   </div>
   <a href="/categories/<%= @category.id %>" role="button" class="btn btn-info">Bact to <%= @category.description() %></a>
+
+<% @types.each() do |type| %>
+
+  <div class="col-sm-2">
+    <li class="types"><u><%= type.description %></u></li>
+  <ul><% type.ingredients.each() do |ingredient| %>
+    <div class="checkbox">
+      <label for="ingredients">
+        <input type="checkbox" name="ingredient_ids" value="<%= ingredient.id() %>"><%=ingredient.description() %>
+      </label>
+    </div>
+      <% end %></ul>
+  </div>
+
+<% end %>
+
+
+
 <button type="submit" class="btn btn-success">Submit Recipe</button>
+
+
+
+
 
 </form>

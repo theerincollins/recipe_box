@@ -63,3 +63,23 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+.types {
+  list-style: none;
+  font-size: 20px;
+  font-style: underline;
+  text-align: center;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+ul {
+  padding-left: 0px;
+}
+
+.ingredients {
+  list-style: none;
+  text-align: center;
+  padding-left: 0px;
+  margin-left: 0px;
+}

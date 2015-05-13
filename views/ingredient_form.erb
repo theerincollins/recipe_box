@@ -1,6 +1,15 @@
-<h1>Available Ingredients by Type<h1>
+<h1>Available Ingredients by Type</h1>
 <ul>
+  <div class="row">
 <% @types.each() do |type| %>
-  <li><%= type.description %></li>
+
+  <div class="col-sm-2">
+    <li class="types"><u><%= type.description %></u></li>
+  <ul><% type.ingredients.each() do |ingredient| %>
+        <li class="ingredients"><%= ingredient.description %></li>
+      <% end %></ul>
+  </div>
+
 <% end %>
+</div>
 </ul>
