@@ -1,0 +1,16 @@
+<h1>Available Categories</h1>
+<ul>
+  <% if @categories.any? %>
+  <% @categories.each do |category| %>
+    <a href='/categories/<%= category.id() %>' role="button" class="btn btn-info category-buttons"><%= category.description %></a>
+    <% end %>
+  <% end %>
+
+
+<form action="/categories" method="post" id="categories">
+  <div class="form-group">
+    <input type="text" name="description" id="description" class="form-control description-input"
+    placeholder = "Category Description">
+  </div>
+  <button type="submit" class="btn btn-success">Submit Category</button>
+</form>

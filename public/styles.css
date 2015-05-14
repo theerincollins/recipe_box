@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-image: url("img/cupcakes.jpg");
+  background-image: url("img/cupcake.jpg");
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
@@ -13,12 +13,7 @@ body {
   text-align: center;
   position: relative;
   background-size: auto 100%;
-  min-height: 100%
-}
-
-.instructions {
-  height: 500px;
-  vertical-align: middle;
+  min-height: 100%;
 }
 
 .category-title {
@@ -82,4 +77,23 @@ ul {
   text-align: center;
   padding-left: 0px;
   margin-left: 0px;
+}
+
+.list, ul {
+  font-size: 15px;
+  list-style: none;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.instructions {
+  font-size: 20px;
+}
+
+.ingredients-title, .instructions-title {
+  font-size: 25px;
+}
+
+.categories-button, .ingredients-button {
+  display: inline-block;
 }

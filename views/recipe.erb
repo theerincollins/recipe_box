@@ -1,1 +1,11 @@
-<h1>placeholder</h1>
+<h1><%= @recipe.title() %></h1>
+
+<ul>
+  <p class="ingredients-title">Ingredients:</p>
+<% @recipe.ingredients.each do |ingredient| %>
+  <li class="list"><%= ingredient.description %></li>
+<% end %>
+</ul>
+
+<p class="instructions-title">Directions:</p>
+<p class="instructions"><%= @recipe.instructions %></p>
