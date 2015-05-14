@@ -9,7 +9,20 @@
 <h2>Here are all the recipes for this category:</h2>
   <ul>
     <% @category.recipes().each do |recipe| %>
-      <li><a href="/recipes/<%= recipe.id() %>"><%= recipe.title()%></a></li>
+      <li>
+        <a href="/recipes/<%= recipe.id() %>"><%= recipe.title()%></a>
+          <% if recipe.rating.id == 1 %>
+          <img class="stars" style="margin-left: 10px" src= '/img/one_star.png'/>
+        <% elsif recipe.rating.id == 2 %>
+          <img class="stars" style="margin-left: 10px" src= '/img/one_star.jpg'/>
+        <% elsif recipe.rating.id == 3 %>
+          <img class="stars" style="margin-left: 10px" src= '/img/three_stars.jpg'/>
+        <% elsif recipe.rating.id == 4 %>
+          <img class="stars" style="margin-left: 10px" src= '/img/four_stars.jpg'/>
+        <% elsif recipe.rating.id == 5 %>
+          <img class="stars" style="margin-left: 10px" src= '/img/five_stars.jpg'/>
+        <% end %>
+      </li>
     <% end %>
   </ul>
   <% end %>

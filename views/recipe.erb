@@ -1,11 +1,37 @@
-<h1><%= @recipe.title() %></h1>
+<h1 class="main-title"><%= @recipe.title() %></h1>
+<% if @recipe.rating.id == 1 %>
+  <img class="stars" src= '/img/one_star.png'/>
+<% elsif @recipe.rating.id == 2 %>
+  <img class="stars" src= '/img/one_star.jpg'/>
+<% elsif @recipe.rating.id == 3 %>
+  <img class="stars" src= '/img/three_stars.jpg'/>
+<% elsif @recipe.rating.id == 4 %>
+  <img class="stars" src= '/img/four_stars.jpg'/>
+<% elsif @recipe.rating.id == 5 %>
+  <img class="stars" src= '/img/five_stars.jpg'/>
+<% end %>
 
-<ul>
-  <p class="ingredients-title">Ingredients:</p>
-<% @recipe.ingredients.each do |ingredient| %>
-  <li class="list"><%= ingredient.description %></li>
+<div class="row">
+  <div class="col-sm-6 pull-right recipe-container" style = "margin-right: 100px">
+
+  <p class="sub-title ingredients-title">Ingredients</p>
+  <br>
+<ul class="ingredients-list"><% @recipe.ingredients.each do |ingredient| %>
+  <li class="list ingredients-list"><%= ingredient.description %></li>
 <% end %>
 </ul>
-
-<p class="instructions-title">Directions:</p>
+</div>
+<div class="col-sm-6 pull-left recipe-container" style="margin-left: 100px">
+<p class="sub-title instructions-title">Directions</p>
 <p class="instructions"><%= @recipe.instructions %></p>
+</div>
+</div>
+
+<div class="row">
+<div class="update-btn"><p><a href="/recipes/update/<%= @recipe.id %>" role="button" class="btn btn-info">Update recipe</a></p></div>
+
+<form action="/recipes/<%= @recipe.id() %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <div class="delete-btn"><p><button type="submit" class="btn btn-danger">Delete</button></p></div>
+</form>
+</div>

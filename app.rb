@@ -14,6 +14,11 @@ get('/categories/:id') do
 end
 
 get('/recipe/add/category/:id') do
+  @one_star = Rating.find(1)
+  @two_star = Rating.find(2)
+  @three_star = Rating.find(3)
+  @four_star = Rating.find(4)
+  @five_star = Rating.find(5)
   @category = Category.find(params.fetch("id").to_i)
   @types = Type.all
   erb(:recipe_form)
@@ -25,6 +30,45 @@ get('/add/ingredients') do
   @types = Type.all()
   erb(:ingredient_form)
 end
+
+post('/ingredients') do
+  @types = Type.all()
+  description = params.fetch("description")
+  type_id = params.fetch("type_id").to_i
+  Ingredient.create(description: description, type_id: type_id)
+  erb(:ingredient_form)
+end
+
+patch('/recipes/:id') do
+  recipe_id = params.fetch("id").to_i()
+  @recipe = Recipe.find(recipe_id)
+  if params.has_key?("instructions")
+    instructions = params.fetch("instructions")
+    @recipe.update({:instructions => instructions})
+  end
+  redirect("/recipes/".concat(@recipe.id().to_s))
+end
+
+
+delete('/recipes/:id') do
+  recipe_id = params.fetch("id").to_i()
+  recipe = Recipe.find(recipe_id)
+  category_id = recipe.categories.ids
+  recipe.destroy()
+  @recipes = Recipe.all()
+  redirect("/")
+end
+
+get("/categories/:id") do
+  @category = Category.find(params.fetch(category_ids))
+  erb(category)
+end
+
+get('/recipes/update/:id') do
+  @recipe = Recipe.find(params.fetch("id").to_i)
+  erb(:recipe_update)
+end
+
 
 get('/add/categories') do
   @categories = Category.all()
@@ -39,10 +83,20 @@ end
 get('/categories/:id/recipes/add') do
   @category = Category.find(params.fetch("id"))
   @types = Type.all()
+  @one_star = Rating.find(1)
+  @two_star = Rating.find(2)
+  @three_star = Rating.find(3)
+  @four_star = Rating.find(4)
+  @five_star = Rating.find(5)
   erb(:recipe_form)
 end
 
 post('/recipes') do
+  @one_star = Rating.find(1)
+  @two_star = Rating.find(2)
+  @three_star = Rating.find(3)
+  @four_star = Rating.find(4)
+  @five_star = Rating.find(5)
   ingredient_ids_integer = []
   ingredient_ids = params.fetch("ingredient_ids")
     ingredient_ids.each() do |id|
@@ -51,16 +105,18 @@ post('/recipes') do
   ingredient_ids_integer
   title = params.fetch("title")
   category_id = params.fetch("category_id")
-  @new_recipe = Recipe.create(title: title, instructions: params.fetch("instructions"), category_ids: [category_id], ingredient_ids: ingredient_ids_integer)
+  rating = params.fetch("rating")
+  @new_recipe = Recipe.create(title: title, instructions: params.fetch("instructions"), category_ids: [category_id], ingredient_ids: ingredient_ids_integer, rating_id: rating)
   redirect("/recipes/".concat(@new_recipe.id().to_s))
 end
-
 
 
 get('/recipes/:id') do
   @recipe = Recipe.find(params.fetch("id").to_i())
   erb(:recipe)
 end
+
+
 
 
 

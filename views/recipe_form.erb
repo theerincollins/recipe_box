@@ -12,11 +12,23 @@
     <textarea placeholder = "Recipe Instructions" name="instructions" id="instructions" form="recipes" class="instructions form-control"></textarea>
   </div>
 
+<div class="ratings container">
+<p>Recipe Rating</p>
+  <select name="rating" id="rating" type="text">
+    <option  value="<%= @one_star.id() %>"><%= @one_star.rating() %></option>
+    <option value="<%= @two_star.id() %>"><%= @two_star.rating() %></option>
+    <option  value="<%= @three_star.id() %>"><%= @three_star.rating() %></option>
+    <option  value="<%= @four_star.id() %>"><%= @four_star.rating() %></option>
+    <option  value="<%= @five_star.id() %>"><%= @five_star.rating() %></option>
+  </select>
+</div>
+
   <% @types.each() do |type| %>
 
     <div class="col-sm-2">
       <li class="types"><u><%= type.description %></u></li>
     <ul><% type.ingredients.each() do |ingredient| %>
+
       <div class="checkbox">
         <label for="ingredients">
           <input type="checkbox" id="ingredient_ids[]" name="ingredient_ids[]" value="<%= ingredient.id() %>"><%=ingredient.description() %>
@@ -31,4 +43,4 @@
 
 </form>
 
-<a href="/categories/<%= @category.id %>" role="button" class="btn btn-info">Bact to <%= @category.description() %></a>
+<a href="/categories/<%= @category.id %>" role="button" class="btn btn-info">Back to <%= @category.description() %></a>

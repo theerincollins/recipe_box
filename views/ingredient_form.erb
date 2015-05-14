@@ -1,15 +1,25 @@
 <h1>Available Ingredients by Type</h1>
+
 <ul>
   <div class="row">
-<% @types.each() do |type| %>
+    <% @types.each() do |type| %>
+      <div class="col-sm-2">
+        <form action="/ingredients" method="post">
+          <li class="types"><u><%= type.description %></u></li>
+            <ul>
+              <% type.ingredients.each() do |ingredient| %>
+                <li class="ingredients"><%= ingredient.description %></li>
+              <% end %>
+            </ul>
 
-  <div class="col-sm-2">
-    <li class="types"><u><%= type.description %></u></li>
-  <ul><% type.ingredients.each() do |ingredient| %>
-        <li class="ingredients"><%= ingredient.description %></li>
-      <% end %></ul>
+            <div class="form-group">
+              <input type="hidden" name="type_id" id="type_id" value="<%= type.id() %>">
+              <input type="text" name="description" id="description" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-success">Add</button>
+          </form>
+          </div>
+      <% end %>
   </div>
-
-<% end %>
-</div>
 </ul>

@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-image: url("img/cupcake.jpg");
+  background-image: url("img/chicken_dog.jpg");
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
@@ -14,6 +14,7 @@ body {
   position: relative;
   background-size: auto 100%;
   min-height: 100%;
+  font-family: "Lato";
 }
 
 .category-title {
@@ -25,7 +26,7 @@ body {
   color: #4B0082;
   font-size: 45px;
   margin-bottom: 0px;
-  text-shadow: 1px 1px 2px #000;
+  text-shadow: 0px 1px 1px #000;
 }
 
 .sub-title {
@@ -34,11 +35,11 @@ body {
   margin-top: 0px;
   padding-top: 0px;
   margin-bottom: 15px;
-  text-shadow: 1px 1px 2px #000;
+  text-shadow: 0px 1px 1px #000;
 }
 
 .category-buttons {
-  margin: 10px;
+  margin: 5px;
 }
 
 .no-value-alert {
@@ -53,10 +54,8 @@ body {
 }
 
 .ingredients-button {
-  margin-top: 50px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 35px;
+  margin-right: 10px;
 }
 
 .types {
@@ -80,7 +79,7 @@ ul {
 }
 
 .list, ul {
-  font-size: 15px;
+  font-size: 20px;
   list-style: none;
   padding-left: 0px;
   margin-left: 0px;
@@ -94,6 +93,29 @@ ul {
   font-size: 25px;
 }
 
-.categories-button, .ingredients-button {
+.categories-button, .ingredients-button, .update-btn, .delete-btn {
   display: inline-block;
+}
+
+.add-ingredient-button {
+  font-size: 12px;
+  padding: 4px;
+}
+
+
+.ingredients-title {
+  margin-bottom: 0px;
+}
+
+.stars {
+  width: 100px;
+  margin-top: 15px;
+}
+
+.recipe-container {
+  border-style: solid;
+  width: 200px;
+  border-radius: 25px;
+  height: 200px;
+
 }

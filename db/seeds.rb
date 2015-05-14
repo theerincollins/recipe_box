@@ -1,6 +1,7 @@
 # Dir[File.dirname(__FILE__) + './lib/*.rb'].each { |file| require file}
 require('./lib/type.rb')
 require('./lib/ingredient.rb')
+require('./lib/rating.rb')
 
 fruit = Type.create(description: "Fruit")
 baking = Type.create(description: "Baking")
@@ -32,3 +33,9 @@ Ingredient.create(description: "Beef", type_id: meat.id())
 Ingredient.create(description: "Tofurkey", type_id: fake_meat.id())
 Ingredient.create(description: "Tofurkey Italian Sausage", type_id: fake_meat.id())
 Ingredient.create(description: "Morning Star", type_id: fake_meat.id())
+
+Rating.create(rating: "1 Star")
+Rating.create(rating: "2 Star")
+Rating.create(rating: "3 Star")
+Rating.create(rating: "4 Star")
+Rating.create(rating: "5 Star")
