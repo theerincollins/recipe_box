@@ -27,22 +27,16 @@ get('/add/ingredients') do
 end
 
 post('/recipes') do
+  ingredient_ids = params.fetch("ingredient_ids").to_a
   title = params.fetch("title")
-  @new_recipe = Recipe.new(title: title, instructions: params.fetch("instructions"))
-  if @new_recipe.save()
-    @recipe_id = @new_recipe.id
-    # ingredient_id = params.fetch("ingredient_ids").to_i()
-    # @ingredients = Ingredient.find(ingredient_id)
-    # if @ingredients.save()
-      redirect("/recipes/".concat(@recipe_id))
-    # else
-    #   erb(:index)
-    # end
-  end
+  category_id = params.fetch("category_id")
+  @new_recipe = Recipe.create(title: title, instructions: params.fetch("instructions"), category_ids: [category_id], recipe_ids: ingredient_ids)
+  @ingredients = ingredients
+  redirect("/recipes/".concat(@new_recipe.id().to_s))
 end
 
-get('/recipes/') do
-  @recipe = Recipe.find(params.fetch("id").to_id())
+get('/recipes/:id') do
+  @recipe = Recipe.find(params.fetch("id").to_i())
   erb(:recipe)
 end
 
