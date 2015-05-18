@@ -9,4 +9,10 @@ class Recipe < ActiveRecord::Base
 
   belongs_to(:rating)
 
+  before_save(:total_time)
+
+def total_time
+  self.total_time = self.prep_time.to_i + self.cook_time.to_i
+end
+
 end

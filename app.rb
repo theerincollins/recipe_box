@@ -92,11 +92,6 @@ get('/categories/:id/recipes/add') do
 end
 
 post('/recipes') do
-  @one_star = Rating.find(1)
-  @two_star = Rating.find(2)
-  @three_star = Rating.find(3)
-  @four_star = Rating.find(4)
-  @five_star = Rating.find(5)
   ingredient_ids_integer = []
   ingredient_ids = params.fetch("ingredient_ids")
     ingredient_ids.each() do |id|
@@ -105,8 +100,12 @@ post('/recipes') do
   ingredient_ids_integer
   title = params.fetch("title")
   category_id = params.fetch("category_id")
-  rating = params.fetch("rating")
-  @new_recipe = Recipe.create(title: title, instructions: params.fetch("instructions"), category_ids: [category_id], ingredient_ids: ingredient_ids_integer, rating_id: rating)
+  rating = params.fetch("rating").to_i
+  prep_time = params.fetch("prep_time").to_i
+  cook_time = params.fetch("cook_time").to_i
+  @new_recipe = Recipe.create(title: title, instructions: params.fetch("instructions"),
+  category_ids: [category_id], ingredient_ids: ingredient_ids_integer,
+  rating_id: rating, prep_time: prep_time, cook_time: cook_time)
   redirect("/recipes/".concat(@new_recipe.id().to_s))
 end
 
@@ -114,6 +113,11 @@ end
 get('/recipes/:id') do
   @recipe = Recipe.find(params.fetch("id").to_i())
   erb(:recipe)
+end
+
+get('/categories') do
+  @categories = Category.all
+  erb(:categories)
 end
 
 

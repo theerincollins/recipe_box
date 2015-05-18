@@ -1,0 +1,10 @@
+<div class="container">
+
+<% if @categories.any? %>
+  <% @categories.each do |category| %>
+    <a href="/categories/<%= category.id() %>" role="button" class="btn btn-info category-buttons"><%= category.description %></a>
+  <% end %>
+<% end %>
+
+<a href="/add/categories" role="button" class="btn btn-success">Add Category</a>
+</div>

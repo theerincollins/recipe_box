@@ -1,23 +1,22 @@
-<h2 class="main-title">It's a Recipe Box</h2>
-<h3 class="sub-title">Cook Things Good</h3>
 
-<!-- <h5>View Existing Recipes by Category</h5> -->
+<section class="index-page">
+<div class="holder">
+  <header></header>
+  <div class="body"></div>
+    <footer>
+      <div class="row index">
+        <div class="body">
 
-<% if @categories.any? %>
-  <% @categories.each do |category| %>
-    <a href="/categories/<%= category.id() %>" role="button" class="btn btn-info category-buttons"><%= category.description %></a>
-  <% end %>
-<% end %>
+    <div class="btn-group">
+      <a href="/add/ingredients" role="button" class="index-buttons">Ingredients</a>
 
-<div class="row">
+      <a href="/recipes" role="button" class="index-buttons">Recipes</a>
 
-<div class="ingredients-button">
-  <p><a href="/add/ingredients" role="button" class="btn btn-success">View/Add Ingredients</a></p>
+
+      <a href="/categories" role="button" class="index-buttons">Categories</a>
+
+    </div>
+  </div>
+  </footer>
 </div>
-
-
-<div class="categories-button">
-  <p><a href="/add/categories" role="button" class="btn btn-primary">Add a Recipe Category</a></p>
-
-</div>
-</div>
+</section>

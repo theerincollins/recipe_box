@@ -1,3 +1,4 @@
+<div class="container">
 <h3>Add a Recipe to <span class="category-title"><%= @category.description() %></span></h3>
 
 <form action="/recipes" method="post" id="recipes">
@@ -12,14 +13,38 @@
     <textarea placeholder = "Recipe Instructions" name="instructions" id="instructions" form="recipes" class="instructions form-control"></textarea>
   </div>
 
+  <label for="prep_time">Prep Time:</label>
+  <select name="prep_time" id="prep_time">
+    <% (1..90).to_a.each do |minute| %>
+      <option value="<%= minute %>"><%= minute %> minutes</option>
+    <% end %>
+  </select>
+
+  <label for="cook_time">Cook Time:</label>
+  <select name="cook_time" id="cook_time">
+    <% (1..90).to_a.each do |minute| %>
+      <option value="<%= minute %>"><%= minute %> minutes</option>
+    <% end %>
+  </select>
+
+  <div class="ratings container">
+    <select name="rating" id="rating">
+      <option value="<%= @one_star.id() %>"> <%= @one_star.rating() %></option>
+      <option value="<%= @two_star.id() %>"> <%= @two_star.rating() %></option>
+      <option value="<%= @three_star.id() %>"> <%= @three_star.rating() %></option>
+      <option value="<%= @four_star.id() %>"> <%= @four_star.rating() %></option>
+      <option value="<%= @five_star.id() %>"> <%= @five_star.rating() %></option>
+    </select>
+  </div>
+
 <div class="ratings container">
 <p>Recipe Rating</p>
   <select name="rating" id="rating" type="text">
-    <option  value="<%= @one_star.id() %>"><%= @one_star.rating() %></option>
-    <option value="<%= @two_star.id() %>"><%= @two_star.rating() %></option>
-    <option  value="<%= @three_star.id() %>"><%= @three_star.rating() %></option>
-    <option  value="<%= @four_star.id() %>"><%= @four_star.rating() %></option>
-    <option  value="<%= @five_star.id() %>"><%= @five_star.rating() %></option>
+    <option value="<%= @one_star.id() %>"> <%= @one_star.rating() %> </option>
+    <option value="<%= @two_star.id() %>"> <%= @two_star.rating() %> </option>
+    <option value="<%= @three_star.id() %>"> <%= @three_star.rating() %> </option>
+    <option value="<%= @four_star.id() %>"> <%= @four_star.rating() %> </option>
+    <option value="<%= @five_star.id() %>"> <%= @five_star.rating() %> </option>
   </select>
 </div>
 
@@ -44,3 +69,7 @@
 </form>
 
 <a href="/categories/<%= @category.id %>" role="button" class="btn btn-info">Back to <%= @category.description() %></a>
+<div class="container">
+  <a href="/" class="btn btn-warning" role="button">Return Home</a></button>
+</div>
+</div>
