@@ -37,17 +37,6 @@
     </select>
   </div>
 
-<div class="ratings container">
-<p>Recipe Rating</p>
-  <select name="rating" id="rating" type="text">
-    <option value="<%= @one_star.id() %>"> <%= @one_star.rating() %> </option>
-    <option value="<%= @two_star.id() %>"> <%= @two_star.rating() %> </option>
-    <option value="<%= @three_star.id() %>"> <%= @three_star.rating() %> </option>
-    <option value="<%= @four_star.id() %>"> <%= @four_star.rating() %> </option>
-    <option value="<%= @five_star.id() %>"> <%= @five_star.rating() %> </option>
-  </select>
-</div>
-
   <% @types.each() do |type| %>
 
     <div class="col-sm-2">

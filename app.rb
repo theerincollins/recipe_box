@@ -120,10 +120,7 @@ get('/categories') do
   erb(:categories)
 end
 
-
-
-
-
-# post('/recipes') do
-#
-# end
+get('/dinner') do
+  @recipes_to_make = Ingredient.can_make
+  erb(:dinner_results)
+end
